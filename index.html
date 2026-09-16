@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'none'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+  <title>BGK × Beymen Xdock Operasyon Portalı</title>
+  <style>
+    :root{color-scheme:light;font-family:Inter,Segoe UI,Arial,sans-serif}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;display:grid;place-items:center;background:#f4f7fb;color:#10203a}
+    main{width:min(92vw,520px);padding:38px;border:1px solid #dce5ef;border-radius:18px;background:#fff;box-shadow:0 18px 48px rgba(20,38,69,.12);text-align:center}
+    .logo{display:inline-grid;place-items:center;width:58px;height:58px;border-radius:16px;background:#315ee8;color:#fff;font-weight:800;margin-bottom:18px}
+    h1{font-size:22px;margin:0 0 10px}
+    p{margin:0 0 22px;color:#66758a;line-height:1.55}
+    .spinner{width:32px;height:32px;margin:0 auto 22px;border:3px solid #dce5ef;border-top-color:#315ee8;border-radius:50%;animation:spin .8s linear infinite}
+    a{display:inline-block;padding:12px 18px;border-radius:10px;background:#315ee8;color:#fff;text-decoration:none;font-weight:700}
+    small{display:block;margin-top:18px;color:#8a97a9}
+    @keyframes spin{to{transform:rotate(360deg)}}
+  </style>
+</head>
+<body>
+  <main>
+    <div class="logo" aria-hidden="true">BGK</div>
+    <h1>Operasyon Portalı açılıyor</h1>
+    <p>Güvenli portal bağlantısına yönlendiriliyorsunuz.</p>
+    <div class="spinner" aria-hidden="true"></div>
+    <a id="continueLink" href="#">Yönlendirme olmazsa tıklayın</a>
+    <small>BGK × Beymen Xdock Operasyon Portalı</small>
+  </main>
+  <script>
+    (function(){
+      'use strict';
+      var portal='https://script.google.com/macros/s/AKfycbx-bu6vD8JNXMi6UAFxjvDcuva9lmaVo1sj3WG08xo5DeAebox3686lC-vXx3oZF6g9-g/exec';
+      var target=new URL(portal);
+      target.searchParams.set('via','github-pages');
+      var reset=new URL(window.location.href).searchParams.get('reset');
+      if(reset) target.searchParams.set('reset',reset);
+      var address=target.toString();
+      document.getElementById('continueLink').href=address;
+      window.setTimeout(function(){window.location.replace(address)},250);
+    })();
+  </script>
+</body>
+</html>
